@@ -57,17 +57,13 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
 
   @override
   void initState() {
-    widget.currentPageNotifier.addListener(() {
-      setState(() {
-        _currentPageIndex = widget.currentPageNotifier.value;
-      });
-    });
+    widget.currentPageNotifier.addListener(_handlePageIndex);
     super.initState();
   }
 
   @override
   void dispose() {
-    widget.currentPageNotifier.dispose();
+    widget.currentPageNotifier.removeListener(_handlePageIndex);
     super.dispose();
   }
 
@@ -103,4 +99,8 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
   }
 
   bool isSelected(int dotIndex) => _currentPageIndex == dotIndex;
+
+  _handlePageIndex() {
+    setState(() => _currentPageIndex = widget.currentPageNotifier.value);
+  }
 }
