@@ -1,6 +1,6 @@
 # example
 
-An example using CirclePageIndicator from page_views_indicators package.
+An example using CirclePageIndicator and ArrowPageViewIndicator from page_views_indicators package.
 
 ## Example:
 

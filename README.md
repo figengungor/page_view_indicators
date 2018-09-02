@@ -9,6 +9,19 @@ Customizable indicators for your PageViews:
     - selectedDotColor
     - dotSpacing
 
+- ArrowPageViewIndicator with following customization:
+    - rightIcon
+    - leftIcon
+    - iconColor
+    - iconPadding
+    - duration
+    - curve
+    - isJump
+    - isInside
+    - iconSize
+    - tooltipLeft
+    - tooltipRight
+
 - Others are coming soon!
 
 ## Example:
