@@ -1,5 +1,5 @@
-import 'package:example/circle_page_indicator_demo.dart';
-import 'package:example/arrow_page_indicator_demo.dart';
+import 'circle_page_indicator_demo.dart';
+import 'arrow_page_indicator_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
