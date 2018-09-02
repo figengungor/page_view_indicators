@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//https://gist.github.com/collinjackson/4fddbfa2830ea3ac033e34622f278824
+
 class CirclePageIndicator extends StatefulWidget {
   static const double _defaultSize = 8.0;
   static const double _defaultSelectedSize = 8.0;
