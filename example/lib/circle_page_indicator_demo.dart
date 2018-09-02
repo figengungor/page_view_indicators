@@ -1,42 +1,14 @@
-# example
-
-An example using CirclePageIndicator from page_views_indicators package.
-
-## Example:
-
-## CirclePageIndicator
-
-![](art/cpi.gif)
-
-```dart
 import 'package:flutter/material.dart';
 import 'package:page_view_indicators/circle_page_indicator.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class CirclePageIndicatorDemo extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'PageViewIndicators Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      routes: {
-        '/': (context) => HomePage(),
-      },
-    );
+  CirclePageIndicatorDemoState createState() {
+    return new CirclePageIndicatorDemoState();
   }
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  HomePageState createState() {
-    return new HomePageState();
-  }
-}
-
-class HomePageState extends State<HomePage> {
+class CirclePageIndicatorDemoState extends State<CirclePageIndicatorDemo> {
   final _items = [
     Colors.blue,
     Colors.orange,
@@ -185,14 +157,3 @@ class HomePageState extends State<HomePage> {
     );
   }
 }
-
-```
-
-## ArrowPageIndicator
-
-![](art/api.gif)
-
-## Credits
-
-[Left Icon](https://www.iconfinder.com/icons/173181/arrow_circle_left_icon)
-[Right icon](https://www.iconfinder.com/icons/173182/arrow_circle_right_icon)
