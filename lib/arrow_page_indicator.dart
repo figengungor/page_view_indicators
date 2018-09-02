@@ -196,7 +196,6 @@ class ArrowPageIndicatorState extends State<ArrowPageIndicator> {
   _handlePageIndex() {
     setState(() {
       _pageIndex = widget.currentPageNotifier.value;
-      print("Page Index $_pageIndex");
     });
   }
 }
