@@ -209,7 +209,7 @@ class HomePageState extends State<HomePage> {
 
 ```
 
-## ArrowPageIndicator
+## ArrowPageViewIndicator
 
 ![](art/api.gif)
 
