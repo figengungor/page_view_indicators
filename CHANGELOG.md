@@ -1,6 +1,15 @@
+## [1.2.0] - 3/23/2018
+
+* LinearProgressPageIndicator is added with following customizations:
+    - width
+    - height
+    - duration
+    - progressColor
+    - backgroundColor
+   
 ## [1.1.0] - 9/2/2018
 
-* ArrowPageViewIndicator is added with following customizations:
+* ArrowPageIndicator is added with following customizations:
     - rightIcon
     - leftIcon
     - iconColor
