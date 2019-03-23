@@ -1,5 +1,6 @@
-import 'circle_page_indicator_demo.dart';
-import 'arrow_page_indicator_demo.dart';
+import 'package:example/linear_progress_page_indicator_demo.dart';
+import 'package:example/circle_page_indicator_demo.dart';
+import 'package:example/arrow_page_indicator_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomePage(),
         '/circle_page_indicator_demo': (context) => CirclePageIndicatorDemo(),
         '/arrow_page_indicator_demo': (context) => ArrowPageIndicatorDemo(),
+        '/linear_progress_page_indicator_demo': (context) =>
+            LinearProgressPageIndicatorDemo(),
       },
     );
   }
@@ -25,6 +28,8 @@ class HomePage extends StatelessWidget {
   final _navItems = [
     NavItem('CirclePageIndicator Demo', '/circle_page_indicator_demo'),
     NavItem('ArrowPageIndicator Demo', '/arrow_page_indicator_demo'),
+    NavItem('LinearProgressPageIndicator Demo',
+        '/linear_progress_page_indicator_demo'),
   ];
 
   @override
