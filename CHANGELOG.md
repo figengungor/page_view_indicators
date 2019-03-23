@@ -1,4 +1,4 @@
-## [1.2.0] - 3/23/2018
+## [1.2.0] - 3/23/2019
 
 * LinearProgressPageIndicator is added with following customizations:
     - width
