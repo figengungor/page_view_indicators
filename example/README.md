@@ -301,7 +301,7 @@ class ArrowPageIndicatorDemoState extends State<ArrowPageIndicatorDemo> {
 
 ## LinearProgressPageIndicator
 
-![](art/api.gif)
+![](art/lpi.gif)
 
 ```dart
 class LinearProgressPageIndicatorDemo extends StatefulWidget {
