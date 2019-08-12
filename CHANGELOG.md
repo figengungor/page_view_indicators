@@ -1,3 +1,13 @@
+## [1.3.0] - 8/12/2019
+
+* StepPageIndicator is added with following customizations:
+    - selectedStep
+    - previousStep
+    - nextStep
+    - stepColor
+    - stepSpacing
+    - size
+    
 ## [1.2.0] - 3/23/2019
 
 * LinearProgressPageIndicator is added with following customizations:
