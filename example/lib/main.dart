@@ -1,6 +1,7 @@
 import 'package:example/linear_progress_page_indicator_demo.dart';
 import 'package:example/circle_page_indicator_demo.dart';
 import 'package:example/arrow_page_indicator_demo.dart';
+import 'package:example/step_indicator_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         '/arrow_page_indicator_demo': (context) => ArrowPageIndicatorDemo(),
         '/linear_progress_page_indicator_demo': (context) =>
             LinearProgressPageIndicatorDemo(),
+        '/step_page_indicator_demo': (context) => StepPageIndicatorDemo(),
       },
     );
   }
@@ -30,6 +32,7 @@ class HomePage extends StatelessWidget {
     NavItem('ArrowPageIndicator Demo', '/arrow_page_indicator_demo'),
     NavItem('LinearProgressPageIndicator Demo',
         '/linear_progress_page_indicator_demo'),
+    NavItem('StepPageIndicator Demo', '/step_page_indicator_demo'),
   ];
 
   @override
@@ -47,20 +50,20 @@ class HomePage extends StatelessWidget {
       children: _navItems
           .map(
             (item) => Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RaisedButton(
-                    padding: EdgeInsets.all(8.0),
-                    color: Colors.green,
-                    onPressed: () {
-                      Navigator.pushNamed(context, item.routeName);
-                    },
-                    child: Text(
-                      item.title,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 16.0),
-                    ),
-                  ),
+              padding: const EdgeInsets.all(8.0),
+              child: RaisedButton(
+                padding: EdgeInsets.all(8.0),
+                color: Colors.green,
+                onPressed: () {
+                  Navigator.pushNamed(context, item.routeName);
+                },
+                child: Text(
+                  item.title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
                 ),
+              ),
+            ),
           )
           .toList(),
     );
