@@ -1,6 +1,7 @@
 import 'package:example/linear_progress_page_indicator_demo.dart';
 import 'package:example/circle_page_indicator_demo.dart';
 import 'package:example/arrow_page_indicator_demo.dart';
+import 'package:example/arrow_page_indicator_demo2.dart';
 import 'package:example/step_indicator_demo.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => HomePage(),
         '/circle_page_indicator_demo': (context) => CirclePageIndicatorDemo(),
         '/arrow_page_indicator_demo': (context) => ArrowPageIndicatorDemo(),
+        '/arrow_page_indicator_demo2': (context) => ArrowPageIndicatorDemo2(),
         '/linear_progress_page_indicator_demo': (context) =>
             LinearProgressPageIndicatorDemo(),
         '/step_page_indicator_demo': (context) => StepPageIndicatorDemo(),
@@ -30,6 +32,7 @@ class HomePage extends StatelessWidget {
   final _navItems = [
     NavItem('CirclePageIndicator Demo', '/circle_page_indicator_demo'),
     NavItem('ArrowPageIndicator Demo', '/arrow_page_indicator_demo'),
+    NavItem('ArrowPageIndicator Demo2', '/arrow_page_indicator_demo2'),
     NavItem('LinearProgressPageIndicator Demo',
         '/linear_progress_page_indicator_demo'),
     NavItem('StepPageIndicator Demo', '/step_page_indicator_demo'),
