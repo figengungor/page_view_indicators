@@ -96,6 +96,7 @@ class ArrowPageIndicatorState extends State<ArrowPageIndicator> {
 
   @override
   void initState() {
+    _readCurrentPageIndex();
     widget.currentPageNotifier.addListener(_handlePageIndex);
     super.initState();
   }
@@ -194,9 +195,11 @@ class ArrowPageIndicatorState extends State<ArrowPageIndicator> {
   bool isLastPage() => _pageIndex == widget.itemCount - 1;
 
   _handlePageIndex() {
-    setState(() {
-      _pageIndex = widget.currentPageNotifier.value;
-    });
+    setState(_readCurrentPageIndex);
+  }
+
+  _readCurrentPageIndex() {
+    _pageIndex = widget.currentPageNotifier.value;
   }
 }
 

@@ -59,6 +59,7 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
 
   @override
   void initState() {
+    _readCurrentPageIndex();
     widget.currentPageNotifier.addListener(_handlePageIndex);
     super.initState();
   }
@@ -103,6 +104,10 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
   bool isSelected(int dotIndex) => _currentPageIndex == dotIndex;
 
   _handlePageIndex() {
-    setState(() => _currentPageIndex = widget.currentPageNotifier.value);
+    setState(_readCurrentPageIndex);
+  }
+
+  _readCurrentPageIndex() {
+    _currentPageIndex = widget.currentPageNotifier.value;
   }
 }

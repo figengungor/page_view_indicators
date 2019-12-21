@@ -51,40 +51,26 @@ class _LinearProgressPageIndicatorState
 
   @override
   void initState() {
-    width = widget.width;
-    itemCount = widget.itemCount;
-    stepWidth = width / itemCount;
-    previousWidth = 0;
-    nextWidth = stepWidth * (widget.currentPageNotifier.value + 1);
-
     _animationController = AnimationController(
       vsync: this,
       duration: widget.duration,
     );
-
     _animationController.addListener(() => setState(() {}));
 
-    _sizeTween = Tween(begin: previousWidth, end: nextWidth)
-        .animate(_animationController);
-
-    _animationController.forward();
-
-    previousWidth = nextWidth;
-
-    widget.currentPageNotifier.addListener(() {
-      nextWidth = stepWidth * (widget.currentPageNotifier.value + 1);
-      _sizeTween = Tween(begin: previousWidth, end: nextWidth)
-          .animate(_animationController);
-      _animationController.reset();
-      _animationController.forward();
-      previousWidth = nextWidth;
-    });
+    width = widget.width;
+    itemCount = widget.itemCount;
+    stepWidth = width / itemCount;
+    previousWidth = 0;
+    
+    _onCurrentPageNotifierValueChanged();
+    widget.currentPageNotifier.addListener(_onCurrentPageNotifierValueChanged);
 
     super.initState();
   }
 
   @override
   void dispose() {
+    widget.currentPageNotifier.removeListener(_onCurrentPageNotifierValueChanged);
     _animationController.dispose();
     super.dispose();
   }
@@ -98,6 +84,24 @@ class _LinearProgressPageIndicatorState
             widget.progressColor, widget.backgroundColor),
       ),
     );
+  }
+
+  _onCurrentPageNotifierValueChanged()
+  {
+    _readCurrentPageNotifierValue();
+    _resetAnimation();
+  }
+
+  _readCurrentPageNotifierValue() {
+      nextWidth = stepWidth * (widget.currentPageNotifier.value + 1);
+      _sizeTween = Tween(begin: previousWidth, end: nextWidth)
+          .animate(_animationController);
+      previousWidth = nextWidth;
+  }
+
+  _resetAnimation() {
+      _animationController.reset();
+      _animationController.forward();
   }
 }
 
