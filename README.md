@@ -491,6 +491,15 @@ class _StepPageIndicatorDemoState extends State<StepPageIndicatorDemo> {
 }
 ``` 
 
+If you want to give an initial index, pass the same initial value to 
+PageController's initial value and currentPageNotifier's value.
+
+```dart
+  final _pageController = PageController(initialValue:3);
+  final _currentPageNotifier = ValueNotifier<int>(3);
+ ```
+
+
 
 ## Credits
 

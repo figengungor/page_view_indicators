@@ -1,3 +1,9 @@
+## [1.3.1] - 12/21/2019
+
+* Fix initial value issue
+[PR #3](https://github.com/figengungor/page_view_indicators/pull/4) 
+Thanks @foxanna
+
 ## [1.3.0] - 8/12/2019
 
 * StepPageIndicator is added with following customizations:
