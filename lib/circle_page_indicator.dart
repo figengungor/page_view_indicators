@@ -33,6 +33,15 @@ class CirclePageIndicator extends StatefulWidget {
   ///The space between dots
   final double dotSpacing;
 
+  ///The border width of the indicator
+  final double borderWidth;
+
+  ///The borderColor is set to dotColor if not set
+  final Color borderColor;
+
+  ///The selectedBorderColor is set to selectedDotColor if not set
+  final Color selectedBorderColor;
+
   CirclePageIndicator({
     Key key,
     @required this.currentPageNotifier,
@@ -43,9 +52,14 @@ class CirclePageIndicator extends StatefulWidget {
     Color dotColor,
     Color selectedDotColor,
     this.selectedSize = _defaultSelectedSize,
+    this.borderWidth = 0,
+    this.borderColor,
+    this.selectedBorderColor,
   })  : this.dotColor = dotColor ??
             ((selectedDotColor?.withAlpha(150)) ?? _defaultDotColor),
         this.selectedDotColor = selectedDotColor ?? _defaultSelectedDotColor,
+        assert(borderWidth < size,
+            'Border width cannot be bigger than dot size, duh!'),
         super(key: key);
 
   @override
@@ -56,11 +70,16 @@ class CirclePageIndicator extends StatefulWidget {
 
 class CirclePageIndicatorState extends State<CirclePageIndicator> {
   int _currentPageIndex = 0;
+  Color _borderColor;
+  Color _selectedBorderColor;
 
   @override
   void initState() {
     _readCurrentPageIndex();
     widget.currentPageNotifier.addListener(_handlePageIndex);
+    _borderColor = widget.borderColor ?? widget.dotColor;
+    _selectedBorderColor =
+        widget.selectedBorderColor ?? widget.selectedDotColor;
     super.initState();
   }
 
@@ -78,9 +97,11 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
         children: List<Widget>.generate(widget.itemCount, (int index) {
           double size = widget.size;
           Color color = widget.dotColor;
+          Color borderColor = _borderColor;
           if (isSelected(index)) {
             size = widget.selectedSize;
             color = widget.selectedDotColor;
+            borderColor = _selectedBorderColor;
           }
           return GestureDetector(
             onTap: () => widget.onPageSelected == null
@@ -89,11 +110,21 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
             child: Container(
               width: size + widget.dotSpacing,
               child: Material(
-                color: color,
+                color: widget.borderWidth > 0 ? borderColor : color,
                 type: MaterialType.circle,
                 child: Container(
                   width: size,
                   height: size,
+                  child: Center(
+                    child: Material(
+                      type: MaterialType.circle,
+                      color: color,
+                      child: Container(
+                        width: size - widget.borderWidth,
+                        height: size - widget.borderWidth,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),

@@ -58,6 +58,8 @@ class CirclePageIndicatorDemoState extends State<CirclePageIndicatorDemo> {
               _buildCircleIndicator6(),
               Text('wrap is fun'),
               _buildCircleIndicator7(),
+              Text('border'),
+              _buildCircleIndicator8(),
             ]
                 .map((item) => Padding(
                       child: item,
@@ -107,11 +109,14 @@ class CirclePageIndicatorDemoState extends State<CirclePageIndicatorDemo> {
   }
 
   _buildCircleIndicator2() {
-    return CirclePageIndicator(
-      size: 16.0,
-      selectedSize: 18.0,
-      itemCount: _items.length,
-      currentPageNotifier: _currentPageNotifier,
+    return Opacity(
+      opacity: 0.6,
+      child: CirclePageIndicator(
+        size: 12.0,
+        selectedSize: 16.0,
+        itemCount: _items.length,
+        currentPageNotifier: _currentPageNotifier,
+      ),
     );
   }
 
@@ -154,6 +159,20 @@ class CirclePageIndicatorDemoState extends State<CirclePageIndicatorDemo> {
       selectedSize: 75.0,
       itemCount: _items.length,
       currentPageNotifier: _currentPageNotifier,
+    );
+  }
+
+  _buildCircleIndicator8() {
+    return CirclePageIndicator(
+      size: 16.0,
+      selectedSize: 16.0,
+      itemCount: _items.length,
+      currentPageNotifier: _currentPageNotifier,
+      borderWidth: 5,
+      selectedDotColor: Colors.white,
+      selectedBorderColor: Colors.black,
+      dotColor: Colors.black,
+      borderColor: Colors.black,
     );
   }
 }
