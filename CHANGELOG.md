@@ -1,3 +1,6 @@
+## [1.3.2] - 9/20/2020
+* Add border feature to CirclePageIndicator
+
 ## [1.3.1] - 12/21/2019
 
 * Fix initial value issue

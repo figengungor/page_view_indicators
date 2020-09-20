@@ -8,6 +8,9 @@ Customizable indicators for your PageViews:
     - dotColor
     - selectedDotColor
     - dotSpacing
+    - borderWidth
+    - borderColor
+    - selectedBorderColor
 
 - ArrowPageIndicator with following customization:
     - rightIcon
