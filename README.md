@@ -40,6 +40,8 @@ Customizable indicators for your PageViews:
     - stepSpacing
     - size
 
+- AnimatedCirclePageIndicator
+
 - Others are coming soon!
 
 ## Example:

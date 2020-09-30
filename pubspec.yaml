@@ -1,11 +1,11 @@
 name: page_view_indicators
 description: Customizable indicators for your PageViews.
-version: 1.3.2
+version: 1.4.0
 author: Figen Güngör <figengungor1@gmail.com>
 homepage: https://github.com/figengungor/page_view_indicators
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:

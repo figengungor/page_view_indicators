@@ -1,3 +1,6 @@
+## [1.4.0] - 9/30/2020
+* AnimatedCirclePageIndicator is added.
+
 ## [1.3.2] - 9/20/2020
 * Add border feature to CirclePageIndicator
 
