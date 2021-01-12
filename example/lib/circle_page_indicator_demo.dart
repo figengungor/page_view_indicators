@@ -82,7 +82,7 @@ class CirclePageIndicatorDemoState extends State<CirclePageIndicatorDemo> {
           itemBuilder: (BuildContext context, int index) {
             return Center(
               child: FlutterLogo(
-                colors: _items[index],
+                textColor: _items[index],
                 size: 50.0,
               ),
             );
@@ -169,10 +169,10 @@ class CirclePageIndicatorDemoState extends State<CirclePageIndicatorDemo> {
       itemCount: _items.length,
       currentPageNotifier: _currentPageNotifier,
       borderWidth: 5,
-      selectedDotColor: Colors.white,
-      selectedBorderColor: Colors.black,
+      selectedDotColor: Colors.black,
+      selectedBorderColor: Colors.red,
       dotColor: Colors.black,
-      borderColor: Colors.black,
+      borderColor: Colors.green,
     );
   }
 }

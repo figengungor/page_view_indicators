@@ -55,7 +55,7 @@ class _LinearProgressPageIndicatorDemoState
           itemBuilder: (BuildContext context, int index) {
             return Center(
               child: FlutterLogo(
-                colors: _items[index],
+                textColor: _items[index],
                 size: 50.0,
               ),
             );

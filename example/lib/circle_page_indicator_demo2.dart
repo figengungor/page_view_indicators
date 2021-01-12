@@ -81,7 +81,7 @@ class CirclePageIndicatorDemoState2 extends State<CirclePageIndicatorDemo2> {
           itemBuilder: (BuildContext context, int index) {
             return Center(
               child: FlutterLogo(
-                colors: _items[index % _items.length],
+                textColor: _items[index % _items.length],
                 size: 50.0,
               ),
             );

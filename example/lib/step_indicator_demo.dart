@@ -41,7 +41,7 @@ class _StepPageIndicatorDemoState extends State<StepPageIndicatorDemo> {
           return Center(
             child: Text(
               'Step ${index + 1}',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           );
         },

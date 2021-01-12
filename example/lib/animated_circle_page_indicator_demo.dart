@@ -58,7 +58,7 @@ class AnimatedCirclePageIndicatorDemoState
           itemBuilder: (BuildContext context, int index) {
             return Center(
               child: FlutterLogo(
-                colors: _items[index],
+                textColor: _items[index],
                 size: 50.0,
               ),
             );
@@ -79,10 +79,13 @@ class AnimatedCirclePageIndicatorDemoState
         child: AnimatedCirclePageIndicator(
           itemCount: _items.length,
           currentPageNotifier: _currentPageNotifier,
-          borderWidth: 2,
+          borderWidth: 1,
           spacing: 6,
           radius: 8,
           activeRadius: 6,
+          borderColor: Colors.white,
+          fillColor: Colors.green,
+          activeColor: Colors.white,
         ),
       ),
     );
