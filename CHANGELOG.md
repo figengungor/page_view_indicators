@@ -1,3 +1,6 @@
+## [1.4.1] - 1/12/2021
+* Fix activeRadius bug of AnimatedCirclePageIndicator.
+
 ## [1.4.0] - 9/30/2020
 * AnimatedCirclePageIndicator is added.
 
