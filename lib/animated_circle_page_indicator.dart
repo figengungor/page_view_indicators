@@ -38,9 +38,9 @@ class AnimatedCirclePageIndicator extends StatefulWidget {
     Key key,
     @required this.currentPageNotifier,
     @required this.itemCount,
-    @required this.radius,
+    this.radius = 8,
     this.borderWidth = 0,
-    this.activeRadius,
+    this.activeRadius = 4,
     this.spacing = 4,
     this.fillColor = const Color(0xFF4C4C4C),
     this.borderColor = Colors.white,
@@ -194,9 +194,9 @@ class _CircleState extends State<_Circle> with TickerProviderStateMixin {
   _handleAnimation() {
     Tween<double> _radiusTween;
     if (widget.isSelected) {
-      _radiusTween = Tween(begin: 0.0, end: widget.radius / 2);
+      _radiusTween = Tween(begin: 0.0, end: widget.activeRadius);
     } else if (_isSelectedPreviously == true && widget.isSelected == false) {
-      _radiusTween = Tween(begin: widget.radius / 2, end: 0.0);
+      _radiusTween = Tween(begin: widget.activeRadius, end: 0.0);
     } else {
       _radiusTween = Tween(begin: 0.0, end: 0.0);
     }
