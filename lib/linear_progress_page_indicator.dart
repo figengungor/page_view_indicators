@@ -20,15 +20,15 @@ class LinearProgressPageIndicator extends StatefulWidget {
   final Color progressColor;
 
   /// The background color of the indicator
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   const LinearProgressPageIndicator({
-    Key key,
-    @required this.currentPageNotifier,
-    @required this.width,
-    @required this.height,
-    @required this.itemCount,
-    @required this.progressColor,
+    Key? key,
+    required this.currentPageNotifier,
+    required this.width,
+    required this.height,
+    required this.itemCount,
+    required this.progressColor,
     this.backgroundColor,
     this.duration = const Duration(milliseconds: 200),
   }) : super(key: key);
@@ -41,13 +41,13 @@ class LinearProgressPageIndicator extends StatefulWidget {
 class _LinearProgressPageIndicatorState
     extends State<LinearProgressPageIndicator>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _sizeTween;
-  double width;
-  double previousWidth;
-  double nextWidth;
-  double stepWidth;
-  int itemCount;
+  late AnimationController _animationController;
+  late Animation<double> _sizeTween;
+  late double width;
+  late double previousWidth;
+  late double nextWidth;
+  late double stepWidth;
+  late int itemCount;
 
   @override
   void initState() {
@@ -106,13 +106,13 @@ class _LinearProgressPageIndicatorState
 }
 
 class ProgressPainter extends CustomPainter {
-  Paint bgPaint;
-  Paint progressPaint;
+  late Paint bgPaint;
+  late Paint progressPaint;
   final Animation<double> value;
   final double height;
   final double width;
   final Color progressColor;
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   ProgressPainter(this.value, this.height, this.width, this.progressColor,
       this.backgroundColor) {

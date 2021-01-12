@@ -20,17 +20,17 @@ class ArrowPageIndicator extends StatefulWidget {
 
   /// The custom right icon widget
   /// Could be a [Icon], [Text] or [Image]. Go crazy.
-  final Widget rightIcon;
+  final Widget? rightIcon;
 
   /// The custom left icon widget
   /// Could be a [Icon], [Text] or [Image]. Go crazy.
-  final Widget leftIcon;
+  final Widget? leftIcon;
 
   ///The size of default right and left [Icon]
   final double iconSize;
 
   ///The color of default right and left [Icon]
-  final Color iconColor;
+  final Color? iconColor;
 
   ///The padding of default right and left [Icon]
   final EdgeInsetsGeometry iconPadding;
@@ -53,10 +53,10 @@ class ArrowPageIndicator extends StatefulWidget {
   final bool isInside;
 
   /// Semantic label for default left [Icon]
-  final String tooltipLeft;
+  final String? tooltipLeft;
 
   /// Semantic label for default right [Icon]
-  final String tooltipRight;
+  final String? tooltipRight;
 
   static const defaultIconSize = 46.0;
 
@@ -67,11 +67,11 @@ class ArrowPageIndicator extends StatefulWidget {
   static const defaultPadding = EdgeInsets.all(8.0);
 
   const ArrowPageIndicator({
-    Key key,
-    @required this.pageController,
-    @required this.currentPageNotifier,
-    @required this.itemCount,
-    @required this.child,
+    Key? key,
+    required this.pageController,
+    required this.currentPageNotifier,
+    required this.itemCount,
+    required this.child,
     this.rightIcon,
     this.leftIcon,
     this.iconColor,
@@ -111,7 +111,7 @@ class ArrowPageIndicatorState extends State<ArrowPageIndicator> {
   Widget build(BuildContext context) => _buildBody();
 
   _buildArrow(
-          {Widget icon, IconData iconData, bool isNotVisible, bool isLeft}) =>
+          {Widget? icon, IconData? iconData, bool? isLeft, required bool isNotVisible}) =>
       Opacity(
         opacity: isNotVisible ? 0.0 : 1.0,
         child: GestureDetector(
@@ -123,16 +123,16 @@ class ArrowPageIndicatorState extends State<ArrowPageIndicator> {
                   color: widget.iconColor,
                   size: widget.iconSize,
                   semanticLabel:
-                      isLeft ? widget.tooltipLeft : widget.tooltipRight,
+                      isLeft! ? widget.tooltipLeft : widget.tooltipRight,
                 ),
           ),
-          onTap: isNotVisible
+          onTap: isNotVisible==true
               ? null
               : () {
                   widget.isJump
                       ? widget.pageController
-                          .jumpToPage(isLeft ? _pageIndex - 1 : _pageIndex + 1)
-                      : isLeft
+                          .jumpToPage(isLeft! ? _pageIndex - 1 : _pageIndex + 1)
+                      : isLeft!
                           ? widget.pageController.previousPage(
                               duration: Duration(milliseconds: widget.duration),
                               curve: widget.curve)

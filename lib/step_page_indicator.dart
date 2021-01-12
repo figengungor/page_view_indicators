@@ -12,7 +12,7 @@ class StepPageIndicator extends StatefulWidget {
   final int itemCount;
 
   /// Called when a step is tapped
-  final ValueChanged<int> onPageSelected;
+  final ValueChanged<int>? onPageSelected;
 
   ///The step color
   final Color stepColor;
@@ -24,22 +24,22 @@ class StepPageIndicator extends StatefulWidget {
   final double stepSpacing;
 
   ///The step display widget for the previous steps
-  final Widget previousStep;
+  final Widget? previousStep;
 
   ///The step display widget for the next steps
-  final Widget nextStep;
+  final Widget? nextStep;
 
   ///The step display widget for the selected step
-  final Widget selectedStep;
+  final Widget? selectedStep;
 
   StepPageIndicator({
-    Key key,
-    @required this.currentPageNotifier,
-    @required this.itemCount,
+    Key? key,
+    required this.currentPageNotifier,
+    required this.itemCount,
     this.onPageSelected,
     this.size = _defaultSize,
     this.stepSpacing = _defaultSpacing,
-    Color stepColor,
+    Color? stepColor,
     this.previousStep,
     this.selectedStep,
     this.nextStep,
@@ -76,9 +76,7 @@ class _StepPageIndicatorState extends State<StepPageIndicator> {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: List<Widget>.generate(widget.itemCount, (int index) {
           return GestureDetector(
-              onTap: () => widget.onPageSelected == null
-                  ? null
-                  : widget.onPageSelected(index),
+              onTap: () => widget.onPageSelected?.call(index),
               child: SizedBox(
                   width: widget.size + widget.stepSpacing,
                   height: widget.size,

@@ -16,7 +16,7 @@ class CirclePageIndicator extends StatefulWidget {
   final int itemCount;
 
   /// Called when a dot is tapped
-  final ValueChanged<int> onPageSelected;
+  final ValueChanged<int>? onPageSelected;
 
   ///The dot color
   final Color dotColor;
@@ -37,20 +37,20 @@ class CirclePageIndicator extends StatefulWidget {
   final double borderWidth;
 
   ///The borderColor is set to dotColor if not set
-  final Color borderColor;
+  final Color? borderColor;
 
   ///The selectedBorderColor is set to selectedDotColor if not set
-  final Color selectedBorderColor;
+  final Color? selectedBorderColor;
 
   CirclePageIndicator({
-    Key key,
-    @required this.currentPageNotifier,
-    @required this.itemCount,
+    Key? key,
+    required this.currentPageNotifier,
+    required this.itemCount,
     this.onPageSelected,
     this.size = _defaultSize,
     this.dotSpacing = _defaultSpacing,
-    Color dotColor,
-    Color selectedDotColor,
+    Color? dotColor,
+    Color? selectedDotColor,
     this.selectedSize = _defaultSelectedSize,
     this.borderWidth = 0,
     this.borderColor,
@@ -70,8 +70,8 @@ class CirclePageIndicator extends StatefulWidget {
 
 class CirclePageIndicatorState extends State<CirclePageIndicator> {
   int _currentPageIndex = 0;
-  Color _borderColor;
-  Color _selectedBorderColor;
+  Color? _borderColor;
+  Color? _selectedBorderColor;
 
   @override
   void initState() {
@@ -97,7 +97,7 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
         children: List<Widget>.generate(widget.itemCount, (int index) {
           double size = widget.size;
           Color color = widget.dotColor;
-          Color borderColor = _borderColor;
+          Color? borderColor = _borderColor;
           if (isSelected(index)) {
             size = widget.selectedSize;
             color = widget.selectedDotColor;
@@ -106,7 +106,7 @@ class CirclePageIndicatorState extends State<CirclePageIndicator> {
           return GestureDetector(
             onTap: () => widget.onPageSelected == null
                 ? null
-                : widget.onPageSelected(index),
+                : widget.onPageSelected!(index),
             child: Container(
               width: size + widget.dotSpacing,
               child: Material(

@@ -29,15 +29,15 @@ class AnimatedCirclePageIndicator extends StatefulWidget {
   final Color activeColor;
 
   /// the padding of this widget
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   /// the active circle animation duration (selected/unselected)
   final Duration duration;
 
   const AnimatedCirclePageIndicator({
-    Key key,
-    @required this.currentPageNotifier,
-    @required this.itemCount,
+    Key? key,
+    required this.currentPageNotifier,
+    required this.itemCount,
     this.radius = 8,
     this.borderWidth = 0,
     this.activeRadius = 4,
@@ -47,7 +47,7 @@ class AnimatedCirclePageIndicator extends StatefulWidget {
     this.activeColor = Colors.white,
     this.padding,
     this.duration = const Duration(milliseconds: 200),
-  })  : assert(radius != null && radius > 0,
+  })  : assert(radius > 0,
             'No radius, no circle pal, give non-zero radius'),
         assert(radius > activeRadius,
             'No pal, activeRadius can not be bigger than radius'),
@@ -59,7 +59,7 @@ class AnimatedCirclePageIndicator extends StatefulWidget {
 }
 
 class _AnimatedCircleIndicatorState extends State<AnimatedCirclePageIndicator> {
-  int _currentIndex;
+  late int _currentIndex;
 
   @override
   void initState() {
@@ -125,15 +125,15 @@ class _Circle extends StatefulWidget {
   final Duration duration;
 
   const _Circle({
-    Key key,
-    @required this.radius,
-    this.borderWidth,
-    this.fillColor,
-    this.borderColor,
-    this.activeColor,
-    double activeRadius,
+    Key? key,
+    required this.radius,
+    required this.borderWidth,
+    required this.fillColor,
+    required this.borderColor,
+    required this.activeColor,
+  required this.duration,
+    double? activeRadius,
     this.isSelected = false,
-    this.duration,
   })  : this.activeRadius = activeRadius ?? radius / 2,
         super(key: key);
 
@@ -142,9 +142,9 @@ class _Circle extends StatefulWidget {
 }
 
 class _CircleState extends State<_Circle> with TickerProviderStateMixin {
-  Animation<double> _animation;
-  AnimationController _controller;
-  bool _isSelectedPreviously;
+  late Animation<double> _animation;
+  late AnimationController _controller;
+  bool _isSelectedPreviously = false;
 
   @override
   void didUpdateWidget(_Circle oldWidget) {
@@ -180,12 +180,12 @@ class _CircleState extends State<_Circle> with TickerProviderStateMixin {
             width: widget.radius * 2,
             height: widget.radius * 2,
             child: CustomPaint(
-              painter: _CirclePainter(widget.radius,
+              painter: _CirclePainter(radius: widget.radius,
                   borderWidth: widget.borderWidth,
                   fillColor: widget.fillColor,
                   borderColor: widget.borderColor,
                   activeColor: widget.activeColor,
-                  activeCircleRadius: _animation?.value ?? 0),
+                  activeCircleRadius: _animation.value),
             ),
           );
         });
@@ -219,13 +219,13 @@ class _CirclePainter extends CustomPainter {
   final Color activeColor;
   final double activeCircleRadius;
 
-  _CirclePainter(
-    this.radius, {
-    this.borderWidth,
-    this.fillColor,
-    this.borderColor,
-    this.activeColor,
-    this.activeCircleRadius,
+  _CirclePainter({
+    required this.radius,
+    required this.borderWidth,
+    required this.fillColor,
+    required this.borderColor,
+    required this.activeColor,
+    required this.activeCircleRadius,
   });
 
   @override

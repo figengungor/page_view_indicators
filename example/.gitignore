@@ -2,6 +2,7 @@
 .dart_tool/
 .packages
 .pub/
+.fvm/
 build/
 ios/.generated/
 ios/Flutter/Generated.xcconfig

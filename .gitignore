@@ -1,6 +1,7 @@
 .DS_Store
 .dart_tool/
 .packages
+.fvm/
 .pub/
 build/
 ios/.generated/
