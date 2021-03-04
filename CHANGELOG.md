@@ -1,3 +1,6 @@
+## [2.0.0] - 1/4/2021
+* Null safe
+
 ## [2.0.0-nullsafety.0] - 1/12/2021
 * Migrated to null-safety
 

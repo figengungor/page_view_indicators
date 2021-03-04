@@ -62,9 +62,11 @@ class HomePage extends StatelessWidget {
           .map(
             (item) => Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RaisedButton(
-                padding: EdgeInsets.all(8.0),
-                color: Colors.green,
+              child: ElevatedButton(
+
+                style: ElevatedButton.styleFrom( padding: EdgeInsets.all(8.0),
+                  primary: Colors.green,
+                ),
                 onPressed: () {
                   Navigator.pushNamed(context, item.routeName);
                 },
